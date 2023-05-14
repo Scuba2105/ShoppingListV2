@@ -1,0 +1,72 @@
+$category-number: 8;
+/*$categoryColors: (
+    "Fresh Produce": rgb(196, 246, 217),
+    "Dairy": rgb(249, 249, 250),
+    "Grains & Cereals": rgb(247, 226, 198),
+    "Baking": rgb(238, 243, 197),
+    "Frozen": rgb(196, 242, 245),
+    "Oils & Seasoning": rgb(250, 215, 211),
+    "Snacks, Spreads & Drink": rgb(248, 207, 242),
+    "Cleaning & Household": 'rgb(206, 212, 248)',
+);*/
+$categoryColors: (
+    "fresh-produce": rgb(44, 240, 125),
+    "dairy": rgb(249, 249, 250),
+    "grains-cereals": rgb(248, 173, 75),
+    "baking": rgb(228, 243, 89),
+    "frozen": rgb(74, 238, 250),
+    "oils-seasoning": rgb(253, 109, 92),
+    "snacks-spreads-drink": rgb(248, 93, 225),
+    "cleaning-household": rgb(116, 135, 246),
+);
+
+body {
+    width: 29.7cm;
+    height: 19.5cm; 
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.layout {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1fr, 8);
+    border: 1px solid black;
+}
+
+@for $i from 1 through $category-number {
+    .category#{$i} {
+        grid-column: 1 / -1;
+        grid-row: $i;
+        display: grid;
+        grid-template-columns: 400px 1fr;
+        grid-template-rows: 1fr;
+    }
+}
+
+@each $category, $j in $categoryColors {
+    .#{$category} {
+        background-color: $j;
+        grid-column: 1;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+    }
+}
+
+.content {
+    border: 1px solid black;
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    padding: 0 10px 0 10px;
+}

@@ -1,0 +1,165 @@
+{
+  "endTimeStamp": 1683536205584,
+  "shoppingListData": [
+    {
+      "name": "apple",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "baby spinach",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "banana",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "green beans",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "blueberries",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "broccoli",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "carrots",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "cherry tomatoes",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "green beans",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "kiwifruit",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "oranges",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "pears",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "potatoes",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "pumpkin",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "sweet potato",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "tomato",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "zucchini",
+      "category": "Fresh Produce",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "milk",
+      "category": "Dairy",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "yogurt",
+      "category": "Dairy",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "eggs",
+      "category": "Dairy",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "brown rice & quinoa",
+      "category": "Grains & Cereals",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "rolled oats",
+      "category": "Grains & Cereals",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "all bran",
+      "category": "Grains & Cereals",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "bread",
+      "category": "Grains & Cereals",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "frozen peas",
+      "category": "Frozen",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "frozen vegetables",
+      "category": "Frozen",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "frozen berries",
+      "category": "Frozen",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "salmon",
+      "category": "Frozen",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "frozen pearl couscous",
+      "category": "Frozen",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "coles perform soup",
+      "category": "Snacks, Spreads & Drink",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "sakata rice biscuits",
+      "category": "Snacks, Spreads & Drink",
+      "frequency": "Weekly"
+    },
+    {
+      "name": "bickford's drink",
+      "category": "Snacks, Spreads & Drink",
+      "frequency": "Weekly"
+    }
+  ]
+}

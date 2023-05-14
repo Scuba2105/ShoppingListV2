@@ -1,0 +1,404 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap");
+body {
+  background-color: #d5d7f8;
+  font-family: "Kalam", "serif";
+  overflow: hidden;
+}
+
+.layout {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Kalam", "serif";
+  font-size: 60px;
+  color: rgb(2, 7, 54);
+}
+
+.modal-form {
+  height: 645px;
+  width: 1050px;
+  border: 1px solid black;
+  background-color: white;
+  position: absolute;
+  top: 200px;
+  left: 75px;
+  z-index: 100;
+  display: none;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 75px 1fr;
+  box-shadow: 10px 10px 23px 7px rgba(0, 0, 0, 0.88);
+}
+.modal-form .cross-icon {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  left: 1010px;
+  top: 20px;
+}
+.modal-form .modal-title {
+  grid-row: 1/2;
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+  color: white;
+  background-color: #383839;
+}
+.modal-form .modal-title h2 {
+  font-size: 35px;
+  font-weight: bold;
+}
+.modal-form .categories {
+  grid-row: 2/-1;
+  grid-column: 1/2;
+  background-color: #383839;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid black;
+}
+.modal-form .categories .fresh-produce {
+  background-color: rgb(44, 240, 125);
+}
+.modal-form .categories .fresh-produce h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .dairy {
+  background-color: rgb(249, 249, 250);
+}
+.modal-form .categories .dairy h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .grains-and-cereals {
+  background-color: rgb(248, 173, 75);
+}
+.modal-form .categories .grains-and-cereals h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .baking {
+  background-color: rgb(228, 243, 89);
+}
+.modal-form .categories .baking h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .frozen {
+  background-color: rgb(74, 238, 250);
+}
+.modal-form .categories .frozen h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .oils-and-seasoning {
+  background-color: rgb(253, 109, 92);
+}
+.modal-form .categories .oils-and-seasoning h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .snacks-spreads-and-drink {
+  background-color: rgb(248, 93, 225);
+}
+.modal-form .categories .snacks-spreads-and-drink h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .cleaning-and-household {
+  background-color: rgb(116, 135, 246);
+}
+.modal-form .categories .cleaning-and-household h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories div {
+  width: 100%;
+  height: 71.25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-form .categories div h3 {
+  color: grey;
+  opacity: 0.4;
+  padding: 10px 30px 10px 30px;
+}
+.modal-form .categories div:hover {
+  cursor: pointer;
+}
+.modal-form .item-summary {
+  grid-row: 2/-1;
+  grid-column: 2/-1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(71.25px, 8);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(196, 246, 217);
+}
+.modal-form .item-summary .no-item-message {
+  font-size: 30px;
+}
+.modal-form .item-summary .item-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-form .item-summary .item-view span {
+  margin-right: 8px;
+  font-size: 16px;
+}
+.modal-form .item-summary .item-view button {
+  margin-left: 8px;
+  background-color: rgb(241, 61, 61);
+  color: white;
+  border: 1px solid rgb(241, 61, 61);
+  font-size: 16px;
+  padding: 2px;
+  border-radius: 5px;
+}
+.modal-form .item-summary .item-view button:hover {
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  transform: translateY(-60px);
+}
+.container .select {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 600px;
+  width: 420px;
+  background-color: #ffffff;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .select .title-container {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100%;
+  height: 90px;
+  background-color: rgb(2, 7, 54);
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .select .title-container h1 {
+  font-family: "Kalam";
+  width: 200px;
+  font-size: 35px;
+  color: white;
+}
+.container .select .search-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .select .search-container label {
+  margin: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(2, 7, 54);
+  transform: translateX(-135px);
+}
+.container .select .search-container .search {
+  height: 50px;
+  width: 50px;
+  transform: translate(150px, -47px);
+  z-index: 10;
+}
+.container .select .search-container .search .search-img {
+  height: 40px;
+  width: 40px;
+}
+.container .select .search-container .search:hover {
+  cursor: pointer;
+}
+.container .select .search-container input {
+  width: 350px;
+  height: 50px;
+  border-radius: 8px;
+  font-size: 20px;
+  z-index: 5;
+}
+.container .select .search-list {
+  display: none;
+  position: absolute;
+  top: 184.5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  list-style: none;
+  width: 350px;
+  z-index: 15;
+  background-color: white;
+  height: 302px;
+  overflow: hidden;
+  padding: 0px;
+}
+.container .select .search-list li {
+  width: 111%;
+  margin: auto auto;
+  font-size: 16px;
+  transform: translateX(-28px);
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid black;
+}
+.container .select .search-list li span {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px;
+}
+.container .select .search-list .list-titles {
+  font-size: 17px;
+  font-weight: bold;
+  background-color: rgb(2, 7, 54);
+  color: white;
+  border: 1px solid black;
+}
+.container .select .search-list .list-title:hover {
+  cursor: default;
+}
+.container .select .search-list li:hover {
+  cursor: pointer;
+}
+.container .select .circle {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background-color: rgb(2, 7, 54);
+  color: white;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-30px);
+}
+.container .select .circle .item {
+  font-size: 28px;
+  font-weight: bold;
+}
+.container .select .circle .freq {
+  transform: translateY(-20px);
+}
+.container .select .circle .order {
+  font-weight: bold;
+}
+.container .select .circle .add {
+  height: 50px;
+  width: 120px;
+  font-size: 20px;
+  color: white;
+  background-color: #5050f5;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .select .circle .select-button:hover {
+  cursor: pointer;
+}
+.container .current {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 600px;
+  width: 420px;
+  background-color: #ffffff;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .current .title-container {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100%;
+  height: 90px;
+  background-color: rgb(2, 7, 54);
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .current .title-container h1 {
+  font-family: "Kalam";
+  width: 200px;
+  font-size: 35px;
+  color: white;
+}
+.container .current .button-container {
+  height: calc(100% - 90px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .current .button-container .review-button1 {
+  height: 100px;
+  width: 300px;
+  border: 3px solid rgb(2, 7, 54);
+  border-radius: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(2, 7, 54);
+}
+.container .current .button-container .review-button2 {
+  height: 100px;
+  width: 300px;
+  border: 3px solid rgb(2, 7, 54);
+  border-radius: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(2, 7, 54);
+}
+.container .current .button-container .review-button3 {
+  height: 100px;
+  width: 300px;
+  border: 3px solid rgb(29, 123, 87);
+  border-radius: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: rgb(29, 123, 87);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.container .current .button-container .review-button:hover {
+  background: rgb(248, 171, 29);
+  color: rgb(2, 7, 54);
+  cursor: pointer;
+}
+.container .current .button-container .review-button3:hover {
+  cursor: pointer;
+  scale: 1.1;
+}

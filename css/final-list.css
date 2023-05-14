@@ -1,0 +1,189 @@
+/*$categoryColors: (
+    "Fresh Produce": rgb(196, 246, 217),
+    "Dairy": rgb(249, 249, 250),
+    "Grains & Cereals": rgb(247, 226, 198),
+    "Baking": rgb(238, 243, 197),
+    "Frozen": rgb(196, 242, 245),
+    "Oils & Seasoning": rgb(250, 215, 211),
+    "Snacks, Spreads & Drink": rgb(248, 207, 242),
+    "Cleaning & Household": 'rgb(206, 212, 248)',
+);*/
+body {
+  width: 29.7cm;
+  height: 19.5cm;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(1fr, 8);
+  border: 1px solid black;
+}
+
+.category1 {
+  grid-column: 1/-1;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.category2 {
+  grid-column: 1/-1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.category3 {
+  grid-column: 1/-1;
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.category4 {
+  grid-column: 1/-1;
+  grid-row: 4;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.category5 {
+  grid-column: 1/-1;
+  grid-row: 5;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.category6 {
+  grid-column: 1/-1;
+  grid-row: 6;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.category7 {
+  grid-column: 1/-1;
+  grid-row: 7;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.category8 {
+  grid-column: 1/-1;
+  grid-row: 8;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.fresh-produce {
+  background-color: rgb(44, 240, 125);
+  grid-column: 1;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.dairy {
+  background-color: rgb(249, 249, 250);
+  grid-column: 1;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.grains-cereals {
+  background-color: rgb(248, 173, 75);
+  grid-column: 1;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.baking {
+  background-color: rgb(228, 243, 89);
+  grid-column: 1;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.frozen {
+  background-color: rgb(74, 238, 250);
+  grid-column: 1;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.oils-seasoning {
+  background-color: rgb(253, 109, 92);
+  grid-column: 1;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.snacks-spreads-drink {
+  background-color: rgb(248, 93, 225);
+  grid-column: 1;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.cleaning-household {
+  background-color: rgb(116, 135, 246);
+  grid-column: 1;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.content {
+  border: 1px solid black;
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  padding: 0 10px 0 10px;
+}
