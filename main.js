@@ -19,8 +19,32 @@ async function sendWeeklyData() {
 ipcMain.handle('data:sendWeeklyData', sendWeeklyData);
 
 // Generate the final shopping list page on a new screen
-ipcMain.on('generate-list', (event, list) => {
-  console.log(list);
+ipcMain.on('generate-list', async (event, list) => {
+  // Generate array data for template
+  const finalArray = [];
+  const categories = ['Fresh Produce','Dairy','Grains & Cereals','Baking','Frozen','Oils & Seasoning','Snacks, Spreads & Drink',
+'Cleaning & Household'];
+  const shoppingList = JSON.parse(list);
+  categories.forEach((category) => {
+    const categoryItems = shoppingList.filter((item) => {
+      return item.category == category;
+    }).map((item) => {
+      return item.name;
+    });
+    if (categoryItems.length > 0) {
+      finalArray.push(categoryItems);
+    }
+  });
+  
+  // Setup pug converter
+  try {
+    pug = await setupPug({pretty: true}, {shoppingItems: finalArray})
+    pug.on('error', err => console.error('electron-pug error', err))
+  } catch (err) {
+    // Could not initiate 'electron-pug'
+  }  
+  
+  // Create new window and load pug file
   const mainWindow = new BrowserWindow({
     width: 1150,
     height: 760,
