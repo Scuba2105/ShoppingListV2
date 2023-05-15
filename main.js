@@ -40,7 +40,9 @@ ipcMain.on('generate-list', async (event, list) => {
     const locals = {shoppingItems: finalArray}
     
     // Setup pug converter
-    pug = await setupPug({pretty: true}, locals);
+    if (pug == undefined) {
+      pug = await setupPug({pretty: true}, locals);
+    }
 
     // Create new window and load pug file
     const mainWindow = new BrowserWindow({
