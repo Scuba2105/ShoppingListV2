@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $category-number: 8;
 /*$categoryColors: (
     "Fresh Produce": rgb(196, 246, 217),
@@ -51,6 +53,7 @@ body {
 @each $category, $j in $categoryColors {
     .#{$category} {
         background-color: $j;
+        color: color.adjust($j,$lightness: -40%, $hue: 15);
         grid-column: 1;
         border: 1px solid black;
         display: flex;
