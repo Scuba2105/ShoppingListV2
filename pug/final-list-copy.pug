@@ -8,8 +8,7 @@ html(lang='en')
     link(rel='stylesheet', href='../css/final-list.css')
   body
     .layout
-      each element, index in shoppingItems
-        div(class=`category${index + 1}`)
-          div(class=`${element.classAtt}`)= element.category
-          div(class='content')= element.selectedItems
+      div(class=`category1`)
+        div(class=`fresh-produce`)= Fresh Produce
+        div(class='content')= Apple, Pear, Pineapple, Kiwi Fruit, Bluberries
       

@@ -24,45 +24,48 @@ ipcMain.on('generate-list', async (event, list) => {
   const finalArray = [];
   const categories = ['Fresh Produce','Dairy','Grains & Cereals','Baking','Frozen','Oils & Seasoning','Snacks, Spreads & Drink',
 'Cleaning & Household'];
-  const shoppingList = JSON.parse(list);
-  categories.forEach((category) => {
-    const categoryItems = shoppingList.filter((item) => {
-      return item.category == category;
-    }).map((item) => {
-      return item.name;
+  try {  
+    const shoppingList = JSON.parse(list);
+    categories.forEach((category) => {
+      const classAttribute = category.toLowerCase().replace('& ','').replace(/\s/g,'-').replace(',','');
+      const categoryItems = shoppingList.filter((item) => {
+        return item.category == category;
+      }).map((item) => {
+        return item.name;
+      }).join(', ');
+      if (categoryItems.length > 0) {
+        finalArray.push({classAtt: classAttribute, category: category, selectedItems: categoryItems});
+      }
     });
-    if (categoryItems.length > 0) {
-      finalArray.push(categoryItems);
-    }
-  });
-  
-  // Setup pug converter
-  try {
-    pug = await setupPug({pretty: true}, {shoppingItems: finalArray})
+    const locals = {shoppingItems: finalArray}
+    
+    // Setup pug converter
+    pug = await setupPug({pretty: true}, locals);
+
+    // Create new window and load pug file
+    const mainWindow = new BrowserWindow({
+      width: 1150,
+      height: 760,
+      webPreferences: {
+        preload: path.join(__dirname, 'preload.js'),
+        nodeIntegration: true,
+        contextIsolated: false
+      }
+    })
+    win2 = mainWindow;
+    mainWindow.setMenu(null);
+    mainWindow.webContents.on('did-finish-load', () => {
+      const version = require('./package.json').version;
+      const windowTitle = `Shopping List Generator v${version}`;
+      mainWindow.setTitle(windowTitle);
+    });
+    mainWindow.webContents.openDevTools();
+    mainWindow.loadFile(`${__dirname}/pug/final-list.pug`); 
+    
     pug.on('error', err => console.error('electron-pug error', err))
   } catch (err) {
-    // Could not initiate 'electron-pug'
+    console.error('finalList pug template error', err);
   }  
-  
-  // Create new window and load pug file
-  const mainWindow = new BrowserWindow({
-    width: 1150,
-    height: 760,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true,
-      contextIsolated: false
-    }
-  })
-  win2 = mainWindow;
-  mainWindow.setMenu(null);
-  mainWindow.webContents.on('did-finish-load', () => {
-    const version = require('./package.json').version;
-    const windowTitle = `Shopping List Generator v${version}`;
-    mainWindow.setTitle(windowTitle);
-  });
-  mainWindow.webContents.openDevTools();
-  mainWindow.loadFile(`${__dirname}/pug/final-list.pug`);
 });
 
 // Save the data to the JSON file
@@ -109,15 +112,9 @@ function createWindow () {
 }
 
 
-app.whenReady().then(async () => {
-  try {
-    createWindow()
-    pug = await setupPug({pretty: true}, {})
-    pug.on('error', err => console.error('electron-pug error', err))
-  } catch (err) {
-    // Could not initiate 'electron-pug'
-  }  
-  
+app.whenReady().then(() => {
+  createWindow()
+    
   app.on('activate', function () {
       if (BrowserWindow.getAllWindows().length === 0) {
           createWindow()
