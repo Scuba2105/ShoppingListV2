@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const setupPug = require('electron-pug');
+const { DateTime } = require("luxon");
 const {getEndDate, generateArrayData} = require('./utils/utils');
 
 // Define the main window, final list window, and pug converter 
@@ -11,9 +12,20 @@ let pug;
 
 // Define the async function for sending the data to the renderer process.
 async function sendWeeklyData() {
-  const data = fs.readFileSync(path.join(__dirname, 'data', 'shopping_items.json'))
-  const dataArray = JSON.parse(data);
-  return dataArray
+  const allData = fs.readFileSync(path.join(__dirname, 'data', 'shopping_items.json'));
+  const allDataArray = JSON.parse(allData);
+  const storedData = fs.readFileSync(path.join(__dirname, 'data', 'current_data.json'));
+  const storedDataObject = JSON.parse(storedData);
+  const endDateTimestamp = storedDataObject.endTimeStamp; 
+  const currentDate = DateTime.now().ts;
+  let shoppingDataObject;
+  if  (endDateTimestamp >= currentDate) {
+    shoppingDataObject = {allData: allDataArray, currentData: storedDataObject.shoppingListData}; 
+  }
+  else {
+    shoppingDataObject = {allData: allDataArray};
+  }
+  return shoppingDataObject;
 };
 
 // Define the function handler for printing the final list screen

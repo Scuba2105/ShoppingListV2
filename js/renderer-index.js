@@ -266,8 +266,7 @@ const saveButton = document.querySelector('.review-button2');
 saveButton.addEventListener('click', saveShoppingData) 
 
 async function saveShoppingData() {
-    alert('This function is yet to be implemented');
-    //const data = await window.electronAPI.saveData(JSON.stringify(shoppingList));
+    const data = await window.electronAPI.saveData(JSON.stringify(shoppingList));
 }
 
 // Select the generate list button
