@@ -25,15 +25,33 @@ $categoryColors: (
 body {
     width: 29.7cm;
     height: 19.5cm; 
-    border: 2px solid black;
+    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.layout {
+.page-layout {
     height: 100%;
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr;
+}
+
+.title-bar {
+    grid-row: 1;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.items-layout {
+    height: 100%;
+    width: 100%;
+    grid-row: 2 / -1;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(1fr, 8);
@@ -53,9 +71,10 @@ body {
 @each $category, $j in $categoryColors {
     .#{$category} {
         background-color: $j;
-        color: color.adjust($j,$lightness: -40%, $hue: 15);
+        color: color.adjust($j,$lightness: -33%, $saturation: -22.5%);
         grid-column: 1;
         border: 1px solid black;
+        border-left: none;
         display: flex;
         justify-content: center;
         align-items: center;

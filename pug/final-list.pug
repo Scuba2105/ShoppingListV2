@@ -7,9 +7,11 @@ html(lang='en')
     title Document
     link(rel='stylesheet', href='../css/final-list.css')
   body
-    .layout
-      each element, index in shoppingItems
-        div(class=`category${index + 1}`)
-          div(class=`${element.classAtt}`)= element.category
-          div(class='content')= element.selectedItems
+    div(class="page-layout")
+      div(class="title-bar") Shopping List #{date}
+      div(class='items-layout')
+        each element, index in shoppingItems
+          div(class=`category${index + 1}`)
+            div(class=`${element.classAtt}`)= element.category
+            div(class='content')= element.selectedItems
       

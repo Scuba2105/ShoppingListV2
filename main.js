@@ -1,8 +1,9 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const fs = require('fs');
-const { DateTime } = require("luxon");
 const setupPug = require('electron-pug');
+const {getEndDate} = require('./utils/utils');
+
 
 // Define the main window, final list window, and pug converter 
 let win1;
@@ -37,7 +38,13 @@ ipcMain.on('generate-list', async (event, list) => {
         finalArray.push({classAtt: classAttribute, category: category, selectedItems: categoryItems});
       }
     });
-    const locals = {shoppingItems: finalArray}
+
+    // Determine the end date of the current shopping week
+    const dateEndArray = getEndDate().toISO().split('T')[0].split('-');
+    const dateEnd = `${dateEndArray[2]}/${dateEndArray[1]}/${dateEndArray[0]}`;
+    
+    // Get date of next Monday
+    const locals = {date: dateEnd, shoppingItems: finalArray}
     
     // Setup pug converter
     if (pug == undefined) {
@@ -74,19 +81,10 @@ ipcMain.on('generate-list', async (event, list) => {
 ipcMain.on('data:saveData', (event, list) => {
   const listArray = JSON.parse(list);
   
-  // Monday is 1 through to Sunday which is 7. 
-  const currentDate = DateTime.now();
-  const dayOfWeek = currentDate.weekday;
-  let daysElapsed;
-  if (dayOfWeek == 1) {
-    daysElapsed = 6;
-  }
-  else {
-    daysElapsed = dayOfWeek - 2;
-  }
-  const daysToEnd = 6 - daysElapsed;
-  const dateEnd = currentDate.plus({days: daysToEnd}).ts;
-  const storedDataObject = {endTimeStamp: dateEnd, shoppingListData: listArray};
+  // Determine the end date of the current shopping week
+  const dateEnd = getEndDate(); 
+  
+  const storedDataObject = {endTimeStamp: dateEnd.ts, shoppingListData: listArray};
   const storedDataString = JSON.stringify(storedDataObject, null, 2);
   fs.writeFileSync(path.join(__dirname, 'data', 'current_data.json'), storedDataString);
   win.webContents.send('save-data-success', 'Data successfully saved!');

@@ -11,15 +11,33 @@
 body {
   width: 29.7cm;
   height: 19.5cm;
-  border: 2px solid black;
+  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.layout {
+.page-layout {
   height: 100%;
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 1fr;
+}
+
+.title-bar {
+  grid-row: 1;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.items-layout {
+  height: 100%;
+  width: 100%;
+  grid-row: 2/-1;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(1fr, 8);
@@ -92,9 +110,10 @@ body {
 
 .fresh-produce {
   background-color: rgb(44, 240, 125);
-  color: #054b33;
+  color: #155f33;
   grid-column: 1;
   border: 1px solid black;
+  border-left: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,9 +123,10 @@ body {
 
 .dairy {
   background-color: rgb(249, 249, 250);
-  color: #8f8a9d;
+  color: #a5a5a5;
   grid-column: 1;
   border: 1px solid black;
+  border-left: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,9 +136,10 @@ body {
 
 .grains-cereals {
   background-color: rgb(248, 173, 75);
-  color: #735e04;
+  color: #845517;
   grid-column: 1;
   border: 1px solid black;
+  border-left: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,9 +149,10 @@ body {
 
 .baking {
   background-color: rgb(228, 243, 89);
-  color: #517709;
+  color: #7c861d;
   grid-column: 1;
   border: 1px solid black;
+  border-left: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,9 +162,10 @@ body {
 
 .frozen {
   background-color: rgb(74, 238, 250);
-  color: #035175;
+  color: #167e86;
   grid-column: 1;
   border: 1px solid black;
+  border-left: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -152,9 +175,10 @@ body {
 
 .oils-seasoning {
   background-color: rgb(253, 109, 92);
-  color: #8b3302;
+  color: #9b2416;
   grid-column: 1;
   border: 1px solid black;
+  border-left: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -164,9 +188,10 @@ body {
 
 .snacks-spreads-drink {
   background-color: rgb(248, 93, 225);
-  color: #830651;
+  color: #921b80;
   grid-column: 1;
   border: 1px solid black;
+  border-left: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,9 +201,10 @@ body {
 
 .cleaning-household {
   background-color: rgb(116, 135, 246);
-  color: #180a94;
+  color: #2234a0;
   grid-column: 1;
   border: 1px solid black;
+  border-left: none;
   display: flex;
   justify-content: center;
   align-items: center;
