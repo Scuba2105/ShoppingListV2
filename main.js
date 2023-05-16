@@ -5,6 +5,9 @@ const setupPug = require('electron-pug');
 const { DateTime } = require("luxon");
 const {getEndDate, generateArrayData} = require('./utils/utils');
 
+// run this as early in the main process as possible
+if (require('electron-squirrel-startup')) app.quit();
+
 // Define the main window, final list window, and pug converter 
 let win1;
 let win2;
