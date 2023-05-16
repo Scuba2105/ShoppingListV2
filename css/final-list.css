@@ -119,6 +119,7 @@ body {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
+  -webkit-print-color--adjust: exact;
 }
 
 .dairy {
@@ -132,6 +133,7 @@ body {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
+  -webkit-print-color--adjust: exact;
 }
 
 .grains-cereals {
@@ -145,6 +147,7 @@ body {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
+  -webkit-print-color--adjust: exact;
 }
 
 .baking {
@@ -158,6 +161,7 @@ body {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
+  -webkit-print-color--adjust: exact;
 }
 
 .frozen {
@@ -171,6 +175,7 @@ body {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
+  -webkit-print-color--adjust: exact;
 }
 
 .oils-seasoning {
@@ -184,6 +189,7 @@ body {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
+  -webkit-print-color--adjust: exact;
 }
 
 .snacks-spreads-drink {
@@ -197,6 +203,7 @@ body {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
+  -webkit-print-color--adjust: exact;
 }
 
 .cleaning-household {
@@ -210,6 +217,7 @@ body {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
+  -webkit-print-color--adjust: exact;
 }
 
 .content {

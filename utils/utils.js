@@ -19,4 +19,23 @@ function getEndDate() {
     return dateEnd;
 }
 
-module.exports = {getEndDate}
+function generateArrayData(finalArray, list) {
+    const categories = ['Fresh Produce','Dairy','Grains & Cereals','Baking','Frozen','Oils & Seasoning','Snacks, Spreads & Drink',
+    'Cleaning & Household'];
+    const shoppingList = JSON.parse(list);
+    categories.forEach((category) => {
+      const classAttribute = category.toLowerCase().replace('& ','').replace(/\s/g,'-').replace(',','');
+      const categoryItems = shoppingList.filter((item) => {
+        return item.category == category;
+      }).map((item) => {
+        return item.name;
+      }).join(', ');
+      
+      // If category has at least one item then push to the final array
+      if (categoryItems.length > 0) {
+        finalArray.push({classAtt: classAttribute, category: category, selectedItems: categoryItems});
+      }
+    });
+}
+
+module.exports = {getEndDate, generateArrayData}

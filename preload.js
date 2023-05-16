@@ -6,5 +6,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   listenForSave: () => ipcRenderer.on('save-data-success', (evt, message) => {
     alert(message); 
   }),   
-  generateList: (finalList) => ipcRenderer.send('generate-list', finalList)
+  generateList: (finalList) => ipcRenderer.send('generate-list', finalList),
+  printList: () => ipcRenderer.invoke('printShoppingData')
 });

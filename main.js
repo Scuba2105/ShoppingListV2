@@ -2,8 +2,7 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const setupPug = require('electron-pug');
-const {getEndDate} = require('./utils/utils');
-
+const {getEndDate, generateArrayData} = require('./utils/utils');
 
 // Define the main window, final list window, and pug converter 
 let win1;
@@ -17,29 +16,43 @@ async function sendWeeklyData() {
   return dataArray
 };
 
+// Define the function handler for printing the final list screen
+function printFinalListScreen() {
+  const printOptions = {
+    silent: false,
+    printBackground: true,
+    color: true,
+    margin: {
+        marginType: 'printableArea'
+    },
+    landscape: true,
+    pagesPerSheet: 1,
+    collate: false,
+    copies: 1,
+  }
+
+  // Print the final list with selected options
+  win2.webContents.print(printOptions, (success, failureReason) => {
+    if (!success) console.log(failureReason);
+
+    console.log('Print Initiated');
+});
+}
+
+// Handler requesting all data to be sent
 ipcMain.handle('data:sendWeeklyData', sendWeeklyData);
+
+// Handler for when print final request is received
+ipcMain.handle('printShoppingData', printFinalListScreen);
 
 // Generate the final shopping list page on a new screen
 ipcMain.on('generate-list', async (event, list) => {
-  // Generate array data for template
-  const finalArray = [];
-  const categories = ['Fresh Produce','Dairy','Grains & Cereals','Baking','Frozen','Oils & Seasoning','Snacks, Spreads & Drink',
-'Cleaning & Household'];
-  try {  
-    const shoppingList = JSON.parse(list);
-    categories.forEach((category) => {
-      const classAttribute = category.toLowerCase().replace('& ','').replace(/\s/g,'-').replace(',','');
-      const categoryItems = shoppingList.filter((item) => {
-        return item.category == category;
-      }).map((item) => {
-        return item.name;
-      }).join(', ');
-      if (categoryItems.length > 0) {
-        finalArray.push({classAtt: classAttribute, category: category, selectedItems: categoryItems});
-      }
-    });
-
-    // Determine the end date of the current shopping week
+  try {
+    // Generate array of shopping list data for template
+    const finalArray = [];
+    generateArrayData(finalArray, list);
+  
+    // Determine the end date of the current shopping week. Format it in our date format. 
     const dateEndArray = getEndDate().toISO().split('T')[0].split('-');
     const dateEnd = `${dateEndArray[2]}/${dateEndArray[1]}/${dateEndArray[0]}`;
     
@@ -68,7 +81,6 @@ ipcMain.on('generate-list', async (event, list) => {
       const windowTitle = `Shopping List Generator v${version}`;
       mainWindow.setTitle(windowTitle);
     });
-    mainWindow.webContents.openDevTools();
     mainWindow.loadFile(`${__dirname}/pug/final-list.pug`); 
     
     pug.on('error', err => console.error('electron-pug error', err))
