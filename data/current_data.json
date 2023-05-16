@@ -1,5 +1,5 @@
 {
-  "endTimeStamp": 1683536205584,
+  "endTimeStamp": 1684750626716,
   "shoppingListData": [
     {
       "name": "apple",
@@ -160,6 +160,26 @@
       "name": "bickford's drink",
       "category": "Snacks, Spreads & Drink",
       "frequency": "Weekly"
+    },
+    {
+      "name": "cabbage",
+      "category": "Fresh Produce",
+      "frequency": "As Required"
+    },
+    {
+      "name": "mushrooms",
+      "category": "Fresh Produce",
+      "frequency": "As Required"
+    },
+    {
+      "name": "domestos",
+      "category": "Cleaning & Household",
+      "frequency": "As Required"
+    },
+    {
+      "name": "window cleaner",
+      "category": "Cleaning & Household",
+      "frequency": "As Required"
     }
   ]
 }

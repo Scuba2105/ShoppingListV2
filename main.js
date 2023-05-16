@@ -111,7 +111,7 @@ ipcMain.on('data:saveData', (event, list) => {
   const storedDataObject = {endTimeStamp: dateEnd.ts, shoppingListData: listArray};
   const storedDataString = JSON.stringify(storedDataObject, null, 2);
   fs.writeFileSync(path.join(__dirname, 'data', 'current_data.json'), storedDataString);
-  win.webContents.send('save-data-success', 'Data successfully saved!');
+  win1.webContents.send('save-data-success', 'Data successfully saved!');
 });
 
 function createWindow () {
@@ -131,7 +131,6 @@ function createWindow () {
     const windowTitle = `Shopping List Generator v${version}`;
     mainWindow.setTitle(windowTitle);
   });
-  mainWindow.webContents.openDevTools();
   mainWindow.loadFile('./html/index.html')
 }
 
