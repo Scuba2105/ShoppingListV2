@@ -120,7 +120,7 @@ ipcMain.on('data:saveData', (event, list) => {
 function createWindow () {
   const mainWindow = new BrowserWindow({
     width: 1200,
-    height: 1000,
+    height: 800,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
